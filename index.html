@@ -53,13 +53,12 @@
         <div class="music-box">
             <div class="music-title">🎵 Pilih Lagu Favorit Kita Untuk Diputar:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
-                <option value="https://google.com">🐝 Honeybee - Special Edit</option>
-                <option value="https://google.com">🦴 To the Bone - Accoustic Instrument</option>
+                <option value="https://r2.dev">🐝 Honeybee - Original Song</option>
+                <option value="https://r2.dev">🦴 To the Bone - Pamungkas</option>
             </select>
             <br>
-            <!-- Player bawaan HTML5 murni -->
             <audio controls id="loveMusic">
-                <source id="audioSource" src="https://google.com" type="audio/ogg">
+                <source id="audioSource" src="https://r2.dev" type="audio/mpeg">
             </audio>
         </div>
 
@@ -69,7 +68,7 @@
             <p>Selamat datang di ruang digital kecil milik kita. Halaman ini didedikasikan khusus untuk menyimpan kenangan indah, momen-momen manis, dan senyuman tercantik dari Denisa, pacar kesayanganku. Terima kasih sudah selalu ada dan menjadi bagian terindah dalam perjalanan hidupku.</p>
         </section>
         
-        <!-- GALERI FOTO 5 SLOT UTUH -->
+        <!-- GALERI FOTO LENGKAP -->
         <section id="galeri">
             <h2>📸 Galeri Foto Kebersamaan</h2>
             <div class="photo-grid">
@@ -89,9 +88,9 @@
                     <img src="foto 4.jpg.jpg" alt="Foto 4">
                     <div class="photo-caption">"Potret kebersamaan indah kita di depan cermin"</div>
                 </div>
-                <!-- Foto 5 FIX SINKRONISASI HURUF BESAR SPASI DARI REPO LU -->
+                <!-- FOTO 5 FIX: MEMBACA NAMA SESUAI FORMAT REPO LU (.jpeg huruf kecil) -->
                 <div class="photo-card">
-                    <img src="Foto 5.jpg" alt="Foto 5">
+                    <img src="foto 5.jpeg" alt="Foto 5">
                     <div class="photo-caption">"Momen spesial terbaru yang gak kalah manis"</div>
                 </div>
             </div>
@@ -122,14 +121,14 @@
             source.src = selectedSong;
             player.load();
             player.play().catch(function(error) {
-                console.log("Klik layar terlebih dahulu untuk memicu audio");
+                console.log("Klik layar untuk memicu audio");
             });
         }
 
-        // Pemicu otomatis dari browser Chrome saat ada ketukan pertama di layar luar
+        // Pemicu otomatis browser saat mendeteksi klik pertama di layar
         document.body.addEventListener('click', function() {
             if (player.paused) {
-                player.play();
+                player.play().catch(function(e){ console.log(e); });
             }
         }, { once: true });
     </script>
