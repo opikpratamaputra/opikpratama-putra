@@ -30,6 +30,12 @@
         .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
         .photo-caption { font-size: 0.9rem; color: #f1f5f9; text-align: center; margin-top: 12px; font-style: italic; font-family: 'Playfair Display', serif; }
 
+        /* Desain Pemutar Dua Lagu */
+        .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
+        .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
+        .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 250px; outline: none; cursor: pointer; }
+        audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; }
+
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
     </style>
@@ -42,6 +48,20 @@
             <h1>GALERY BEDUWAAA ❤️</h1>
             <div class="subtitle">Selamanya Bersama &bull; Cerita Bahagia Kita</div>
         </header>
+
+        <!-- MULTI AUDIO PLAYER NATIVE -->
+        <div class="music-box">
+            <div class="music-title">🎵 Pilih Lagu Favorit Kita Untuk Diputar:</div>
+            <!-- Menu pilihan lagu -->
+            <select class="song-selector" id="songSelect" onchange="changeSong()">
+                <option value="https://soundhelix.com">🐝 Honeybee - Steam of Praise</option>
+                <option value="https://soundhelix.com">🦴 To the Bone - Pamungkas</option>
+            </select>
+            <br>
+            <audio controls id="loveMusic">
+                <source id="audioSource" src="https://soundhelix.com" type="audio/mpeg">
+            </audio>
+        </div>
 
         <!-- INTRO -->
         <section id="cerita">
@@ -83,5 +103,21 @@
         </footer>
 
     </div>
+
+    <script>
+        var player = document.getElementById("loveMusic");
+        var source = document.getElementById("audioSource");
+        var selector = document.getElementById("songSelect");
+
+        player.volume = 1.0;
+
+        function changeSong() {
+            var selectedSong = selector.value;
+            player.pause();
+            source.src = selectedSong;
+            player.load();
+            player.play();
+        }
+    </script>
 </body>
 </html>
