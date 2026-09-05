@@ -28,9 +28,7 @@
         .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 16px; padding: 12px; transition: all 0.3s ease; }
         .photo-card:hover { transform: scale(1.03) rotate(0.5deg); border-color: var(--neon-pink); box-shadow: 0 0 25px rgba(255, 42, 133, 0.3); }
         .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
-        .photo-caption { font-size: 0.9rem; color: #f1f5f9; text-align: center; margin-top: 12px; font-style: italic; font-family: 'Playfair Display', serif; }
 
-        /* Gaya Kotak Musik Jukebox Premium */
         .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
         .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
         .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 250px; outline: none; cursor: pointer; }
@@ -49,7 +47,7 @@
             <div class="subtitle">Opik & Denisa &bull; Selamanya Bersama</div>
         </header>
 
-        <!-- MULTI AUDIO JUKEBOX (MENEMBAK FILE INTERNAL REPO LU YANG DOUBLE .mp3) -->
+        <!-- MULTI AUDIO JUKEBOX -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
@@ -58,55 +56,49 @@
                 <option value="overnight.mp3.mp3">🌙 Overnight - Kita Lewati Berdua</option>
             </select>
             <br>
-            <!-- Player bawaan HTML5 murni bebas blokir server luar -->
             <audio controls id="loveMusic">
                 <source id="audioSource" src="honeybee.mp3.mp3" type="audio/mpeg">
                 Browser kamu tidak mendukung pemutar audio bawaan.
             </audio>
         </div>
 
-        <!-- INTRO -->
+        <!-- INTRO BARU REQUEST PIK -->
         <section id="cerita">
             <h2>✨ Ruang Kenangan Kita</h2>
-            <p>Selamat datang di ruang digital kecil milik kita. Halaman ini didedikasikan khusus untuk menyimpan kenangan indah, momen-momen manis, dan senyuman tercantik dari Denisa, pacar kesayanganku. Terima kasih sudah selalu ada dan menjadi bagian terindah dalam perjalanan hidupku.</p>
+            <p>Welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
         </section>
         
-        <!-- GALERI FOTO LENGKAP 5 SLOT TANPA PECAH -->
+        <!-- GALERI FOTO LENGKAP TANPA KATA-KATA -->
         <section id="galeri">
             <h2>📸 Galeri Foto Kebersamaan</h2>
             <div class="photo-grid">
                 <!-- Foto 1 -->
                 <div class="photo-card">
                     <img src="foto 1.jpg.jpg" alt="Foto 1">
-                    <div class="photo-caption">"Senyuman manis Denisa yang selalu cerahkan hariku"</div>
                 </div>
                 <!-- Foto 2 -->
                 <div class="photo-card">
                     <img src="foto 2.jpg.jpg" alt="Foto 2">
-                    <div class="photo-caption">"Keseruan momen manis pas kita jalan-jalan di Braga"</div>
                 </div>
                 <!-- Foto 3 -->
                 <div class="photo-card">
                     <img src="foto 3.jpg.jpg" alt="Foto 3">
-                    <div class="photo-caption">"Momen paling kompak dan seru bareng kamu, Denisa"</div>
                 </div>
                 <!-- Foto 4 -->
                 <div class="photo-card">
                     <img src="foto 4.jpg.jpg" alt="Foto 4">
-                    <div class="photo-caption">"Potret kebersamaan indah kita di depan cermin"</div>
                 </div>
-                <!-- Foto 5 Fix Sesuai Format File Lu (.jpg.jpeg) -->
+                <!-- Foto 5 -->
                 <div class="photo-card">
                     <img src="foto 5.jpg.jpeg" alt="Foto 5">
-                    <div class="photo-caption">"Momen spesial terbaru yang gak kalah manis"</div>
                 </div>
             </div>
         </section>
 
-        <!-- PESAN ROMANTIS -->
+        <!-- PESAN ROMANTIS BARU REQUEST PIK -->
         <section id="pesan">
             <h2>💌 Pesan Untukmu</h2>
-            <p class="love-note">"Di dunia yang penuh dengan ketidakpastian, kamu adalah satu-satunya hal yang selalu ingin aku pastikan, Denisa. Terima kasih sudah menjadi alasan terbaik di balik kebahagiaanku."</p>
+            <p class="love-note">"websitee iniii akuuu buattt bukannn cumaaa sekedarrr membuattt tapii websiteee iniii menunjukannn kaloo akuuu secintaa ituu samaa kamuuu,sesayangg ituuu samaaa kamuuu,semogaaa kitaaa terusss bersamaaa yaaa sayanggg"</p>
         </section>
 
         <!-- FOOTER -->
@@ -133,7 +125,6 @@
             });
         }
 
-        // Memicu putar lagu otomatis dari browser saat ada ketukan pertama di area layar luar
         document.body.addEventListener('click', function() {
             if (player.paused) {
                 player.play().catch(function(e){ console.log(e); });
