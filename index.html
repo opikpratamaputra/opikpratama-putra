@@ -8,27 +8,26 @@
     <style>
         :root {
             --bg-love: #0a050d;
-            --panel-bg: rgba(26, 17, 36, 0.85);
+            --panel-bg: rgba(26, 17, 36, 0.75);
             --neon-pink: #ff2a85;
             --neon-purple: #9500ff;
             --text-light: #f8fafc;
-            --border-love: rgba(255, 42, 133, 0.3);
+            --border-love: rgba(255, 42, 133, 0.25);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg-love); color: var(--text-light); font-family: 'Plus Jakarta Sans', sans-serif; padding: 20px; overflow-x: hidden; background-image: radial-gradient(at 0% 0%, rgba(255, 42, 133, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(149, 0, 255, 0.08) 0px, transparent 50%); }
         .container { max-width: 650px; margin: 40px auto; }
-        header { background: var(--panel-bg); border: 1px solid var(--border-love); border-radius: 24px; padding: 45px 20px; text-align: center; box-shadow: 0 15px 35px rgba(255, 42, 133, 0.2); margin-bottom: 35px; position: relative; }
-        header h1 { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; text-shadow: 0 0 10px rgba(255, 42, 133, 0.3); }
+        header { background: var(--panel-bg); border: 1px solid var(--border-love); border-radius: 24px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(255, 42, 133, 0.15); margin-bottom: 30px; position: relative; }
+        header h1 { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
         .subtitle { font-size: 0.95rem; color: #cbd5e1; letter-spacing: 1px; text-transform: uppercase; }
-        section { background: var(--panel-bg); border: 1px solid var(--border-love); border-radius: 24px; padding: 35px; margin-bottom: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-        section h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--neon-pink); margin-bottom: 15px; border-bottom: 1px solid rgba(255, 42, 133, 0.15); padding-bottom: 8px; }
+        section { background: var(--panel-bg); border: 1px solid var(--border-love); border-radius: 24px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        section h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--neon-pink); margin-bottom: 15px; border-bottom: 1px solid rgba(255, 42, 133, 0.1); padding-bottom: 8px; }
         section p { color: #cbd5e1; font-size: 0.98rem; line-height: 1.7; }
         
-        /* Gaya Galeri Foto Murni Responsif */
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
-        .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.2); border-radius: 16px; padding: 12px; transition: all 0.3s ease; text-align: center; }
-        .photo-card:hover { transform: scale(1.02); border-color: var(--neon-pink); box-shadow: 0 0 25px rgba(255, 42, 133, 0.35); }
-        .photo-card img { width: 100%; height: 360px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
+        .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 16px; padding: 12px; transition: all 0.3s ease; text-align: center; }
+        .photo-card:hover { transform: scale(1.03) rotate(0.5deg); border-color: var(--neon-pink); box-shadow: 0 0 25px rgba(255, 42, 133, 0.3); }
+        .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
         .photo-caption { font-size: 0.9rem; color: #f1f5f9; text-align: center; margin-top: 12px; font-style: italic; font-family: 'Playfair Display', serif; }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
@@ -38,57 +37,43 @@
 <body>
     <div class="container">
         
-        <!-- HEADER UTAMA -->
         <header>
             <h1>Opik & Our Beautiful Memory ❤️</h1>
             <div class="subtitle">Selamanya Bersama &bull; Cerita Bahagia Kita</div>
         </header>
 
-        <!-- INTRO -->
         <section id="cerita">
             <h2>✨ Ruang Kenangan Kita</h2>
             <p>Selamat datang di ruang digital kecil milik kita. Halaman ini didedikasikan khusus untuk menyimpan kenangan indah, momen-momen manis, dan senyuman tercantik dari pacar kesayanganku. Terima kasih sudah selalu ada dan menjadi bagian terindah dalam perjalanan hidupku.</p>
         </section>
         
-        <!-- GALERI FOTO LENGKAP -->
         <section id="galeri">
             <h2>📸 Galeri Foto Kebersamaan</h2>
             <div class="photo-grid">
-                
-                <!-- Foto 1 -->
                 <div class="photo-card">
-                    <img src="foto 1.jpg.jpg" alt="Momen Indah 1">
+                    <img src="foto 1.jpg.jpg" alt="Foto 1">
                     <div class="photo-caption">"Senyuman manis favorit yang selalu cerahkan hariku"</div>
                 </div>
-                
-                <!-- Foto 2 -->
                 <div class="photo-card">
-                    <img src="foto 2.jpg.jpg" alt="Momen Indah 2">
+                    <img src="foto 2.jpg.jpg" alt="Foto 2">
                     <div class="photo-caption">"Keseruan momen manis pas kita jalan-jalan di Braga"</div>
                 </div>
-
-                <!-- Foto 3 -->
                 <div class="photo-card">
-                    <img src="foto 3.jpg.jpg" alt="Momen Indah 3">
+                    <img src="foto 3.jpg.jpg" alt="Foto 3">
                     <div class="photo-caption">"Momen paling kompak dan seru bareng kamu"</div>
                 </div>
-
-                <!-- Foto 4 -->
                 <div class="photo-card">
-                    <img src="foto 4.jpg.jpg" alt="Momen Indah 4">
+                    <img src="foto 4.jpg.jpg" alt="Foto 4">
                     <div class="photo-caption">"Potret kebersamaan indah kita di depan cermin"</div>
                 </div>
-
             </div>
         </section>
 
-        <!-- PESAN ROMANTIS -->
         <section id="pesan">
             <h2>💌 Pesan Untukmu</h2>
             <p class="love-note">"Di dunia yang penuh dengan ketidakpastian, kamu adalah satu-satunya hal yang selalu ingin aku pastikan. Terima kasih sudah menjadi alasan terbaik di balik kebahagiaanku."</p>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p>// LOCKED WITH LOVE BY OPIK &copy; 2026</p>
         </footer>
