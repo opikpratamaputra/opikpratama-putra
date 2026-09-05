@@ -30,7 +30,6 @@
         .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; }
         .photo-caption { font-size: 0.9rem; color: #f1f5f9; text-align: center; margin-top: 12px; font-style: italic; font-family: 'Playfair Display', serif; }
 
-        /* Musik Player Panel Style */
         .music-panel { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 42, 133, 0.1); border: 1px dashed var(--neon-pink); padding: 15px 20px; border-radius: 16px; margin-bottom: 25px; }
         .music-info { font-size: 0.9rem; color: #fda4af; font-weight: 600; display: flex; align-items: center; gap: 8px; }
         .music-btn { background: var(--neon-pink); color: white; border: none; padding: 6px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(255,42,133,0.4); }
@@ -42,9 +41,9 @@
 <body>
     <div class="container">
         
-        <!-- AUDIO PLAYER (Lagu Honeybee Romantis) -->
+        <!-- LINK AUDIO RESMI & STABIL -->
         <audio id="loveAudio" loop>
-            <source src="https://soundhelix.com" type="audio/mpeg">
+            <source src="https://mixkit.co" type="audio/mpeg">
         </audio>
 
         <!-- HEADER UTAMA -->
@@ -53,7 +52,7 @@
             <div class="subtitle">Selamanya Bersama &bull; Cerita Bahagia Kita</div>
         </header>
 
-        <!-- PANEL MUSIK INTERAKTIF -->
+        <!-- PANEL MUSIK -->
         <div class="music-panel">
             <div class="music-info">🎵 Now Playing: Honeybee (Our Favorite Song)</div>
             <button class="music-btn" id="playBtn" onclick="toggleMusic()">PLAY MUSIC</button>
@@ -69,31 +68,22 @@
         <section id="galeri">
             <h2>📸 Galeri Foto Kebersamaan</h2>
             <div class="photo-grid">
-                
-                <!-- Foto 1 -->
                 <div class="photo-card">
                     <img src="foto 1.jpg.jpg" alt="Momen Indah 1">
                     <div class="photo-caption">"Senyuman manis Denisa yang selalu cerahkan hariku"</div>
                 </div>
-                
-                <!-- Foto 2 -->
                 <div class="photo-card">
                     <img src="foto 2.jpg.jpg" alt="Momen Indah 2">
                     <div class="photo-caption">"Keseruan momen manis pas kita jalan-jalan di Braga"</div>
                 </div>
-
-                <!-- Foto 3 -->
                 <div class="photo-card">
                     <img src="foto 3.jpg.jpg" alt="Momen Indah 3">
                     <div class="photo-caption">"Momen paling kompak dan seru bareng kamu, Denisa"</div>
                 </div>
-
-                <!-- Foto 4 -->
                 <div class="photo-card">
                     <img src="foto 4.jpg.jpg" alt="Momen Indah 4">
                     <div class="photo-caption">"Potret kebersamaan indah kita di depan cermin"</div>
                 </div>
-
             </div>
         </section>
 
@@ -103,37 +93,44 @@
             <p class="love-note">"Di dunia yang penuh dengan ketidakpastian, kamu adalah satu-satunya hal yang selalu ingin aku pastikan, Denisa. Terima kasih sudah menjadi alasan terbaik di balik kebahagiaanku."</p>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p>// LOCKED WITH LOVE BY OPIK &copy; 2026</p>
         </footer>
 
     </div>
 
-    <!-- JAVASCRIPT UNTUK CONTROL AUDIO -->
     <script>
         var audio = document.getElementById("loveAudio");
         var btn = document.getElementById("playBtn");
 
+        // Memaksa volume penuh
+        audio.volume = 1.0;
+
         function toggleMusic() {
             if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "PAUSE MUSIC";
-                btn.style.background = "#9500ff";
+                var playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        btn.innerHTML = "PAUSE MUSIC";
+                        btn.style.background = "#9500ff";
+                    }).catch(error => {
+                        console.log("Playback diblokir oleh sistem browser");
+                    });
+                }
             } else {
-                audio.sound
                 audio.pause();
                 btn.innerHTML = "PLAY MUSIC";
                 btn.style.background = "#ff2a85";
             }
         }
         
-        // Memaksa musik berputar otomatis saat layar diklik pertama kali oleh pengunjung
+        // Memicu paksa putar audio saat mendeteksi klik pertama di layar
         document.body.addEventListener('click', function() {
             if (audio.paused) {
-                audio.play();
-                btn.innerHTML = "PAUSE MUSIC";
-                btn.style.background = "#9500ff";
+                audio.play().then(_ => {
+                    btn.innerHTML = "PAUSE MUSIC";
+                    btn.style.background = "#9500ff";
+                });
             }
         }, { once: true });
     </script>
