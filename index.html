@@ -30,8 +30,10 @@
         .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
         .photo-caption { font-size: 0.9rem; color: #f1f5f9; text-align: center; margin-top: 12px; font-style: italic; font-family: 'Playfair Display', serif; }
 
-        /* Gaya Frame Musik Spotify */
-        .music-wrapper { margin-bottom: 30px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-love); box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
+        /* Gaya Khusus Pemutar Audio Native */
+        .music-card { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
+        .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.5px; }
+        audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
@@ -46,9 +48,13 @@
             <div class="subtitle">Selamanya Bersama &bull; Cerita Bahagia Kita</div>
         </header>
 
-        <!-- PEMUTAR MUSIK RESMI SPOTIFY (ANTI-BLOKIR CHROME) -->
-        <div class="music-wrapper">
-            <iframe style="border-radius:12px" src="https://spotify.com" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <!-- NATIVE AUDIO PLAYER (ANTI-BLOKIR & PASTI BERBUNYI) -->
+        <div class="music-card">
+            <div class="music-title">🎵 Play Our Special Song: Honeybee</div>
+            <audio controls id="loveMusic">
+                <source src="https://google.com" type="audio/mpeg">
+                Browser kamu tidak mendukung pemutar audio bawaan.
+            </audio>
         </div>
 
         <!-- INTRO -->
@@ -62,20 +68,20 @@
             <h2>📸 Galeri Foto Kebersamaan</h2>
             <div class="photo-grid">
                 <div class="photo-card">
-                    <img src="foto 1.jpg.jpg" alt="Momen Indah 1">
+                    <img src="foto 1.jpg.jpg" alt="Foto 1">
                     <div class="photo-caption">"Senyuman manis Denisa yang selalu cerahkan hariku"</div>
                 </div>
                 <div class="photo-card">
-                    <img src="foto 2.jpg.jpg" alt="Momen Indah 2">
+                    <img src="foto 2.jpg.jpg" alt="Foto 2">
                     <div class="photo-caption">"Keseruan momen manis pas kita jalan-jalan di Braga"</div>
                 </div>
                 <div class="photo-card">
-                    <img src="foto 3.jpg.jpg" alt="Momen Indah 3">
+                    <img src="foto 3.jpg.jpg" alt="Foto 3">
                     <div class="photo-caption">"Momen paling kompak dan seru bareng kamu, Denisa"</div>
                 </div>
                 <div class="photo-card">
-                    <img src="foto 4.jpg.jpg" alt="Momen Indah 4">
-                    <div class="photo-caption">"potret kebersamaan indah kita di depan cermin"</div>
+                    <img src="foto 4.jpg.jpg" alt="Foto 4">
+                    <div class="photo-caption">"Potret kebersamaan indah kita di depan cermin"</div>
                 </div>
             </div>
         </section>
@@ -83,7 +89,7 @@
         <!-- PESAN ROMANTIS -->
         <section id="pesan">
             <h2>💌 Pesan Untukmu</h2>
-            <p class="love-note">"Di dunia yang penuh dengan ketidakpastian, kamu adalah satu-satunya hal yang selalu ingin aku pastikan, Denisa. Terima kasih sudah menjadi alasan terbaik di balik kebahagiaanku."</p>
+            <p class="love-note">"Di dunia yang penuh dengan ketidakpastian, kamu adalah satu-satunya hal yang selalu ingin aku pastikan, Denisa. Terima kasih sudah menjadi alasan terbaik di balik kebahagaiaku."</p>
         </section>
 
         <footer>
@@ -91,5 +97,10 @@
         </footer>
 
     </div>
+
+    <script>
+        // Otomatis set volume penuh saat dimuat
+        document.getElementById("loveMusic").volume = 1.0;
+    </script>
 </body>
 </html>
