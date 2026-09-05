@@ -32,7 +32,7 @@
 
         .music-panel { display: flex; align-items: center; justify-content: space-between; background: rgba(255, 42, 133, 0.1); border: 1px dashed var(--neon-pink); padding: 15px 20px; border-radius: 16px; margin-bottom: 25px; }
         .music-info { font-size: 0.9rem; color: #fda4af; font-weight: 600; display: flex; align-items: center; gap: 8px; }
-        .music-btn { background: var(--neon-pink); color: white; border: none; padding: 6px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(255,42,133,0.4); }
+        .music-btn { background: var(--neon-pink); color: white; border: none; padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; cursor: pointer; box-shadow: 0 0 10px rgba(255,42,133,0.4); }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
@@ -41,9 +41,9 @@
 <body>
     <div class="container">
         
-        <!-- LINK AUDIO RESMI & STABIL -->
-        <audio id="loveAudio" loop>
-            <source src="https://mixkit.co" type="audio/mpeg">
+        <!-- AUDIO FILE RESMI & STABIL -->
+        <audio id="loveAudio" loop prelaod="auto">
+            <source src="https://mixkit.co" type="audio/wav">
         </audio>
 
         <!-- HEADER UTAMA -->
@@ -102,35 +102,26 @@
     <script>
         var audio = document.getElementById("loveAudio");
         var btn = document.getElementById("playBtn");
-
-        // Memaksa volume penuh
         audio.volume = 1.0;
 
         function toggleMusic() {
             if (audio.paused) {
-                var playPromise = audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        btn.innerHTML = "PAUSE MUSIC";
-                        btn.style.background = "#9500ff";
-                    }).catch(error => {
-                        console.log("Playback diblokir oleh sistem browser");
-                    });
-                }
+                audio.play();
+                btn.innerHTML = "PAUSE MUSIC";
+                btn.style.background = "#9500ff";
             } else {
                 audio.pause();
                 btn.innerHTML = "PLAY MUSIC";
                 btn.style.background = "#ff2a85";
             }
         }
-        
-        // Memicu paksa putar audio saat mendeteksi klik pertama di layar
+
+        // Jalankan audio otomatis jika mendeteksi klik pertama di luar tombol
         document.body.addEventListener('click', function() {
             if (audio.paused) {
-                audio.play().then(_ => {
-                    btn.innerHTML = "PAUSE MUSIC";
-                    btn.style.background = "#9500ff";
-                });
+                audio.play();
+                btn.innerHTML = "PAUSE MUSIC";
+                btn.style.background = "#9500ff";
             }
         }, { once: true });
     </script>
