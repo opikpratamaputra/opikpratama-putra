@@ -41,9 +41,9 @@
 <body>
     <div class="container">
         
-        <!-- AUDIO FILE RESMI & STABIL -->
-        <audio id="loveAudio" loop prelaod="auto">
-            <source src="https://mixkit.co" type="audio/wav">
+        <!-- AUDIO FILE MP3 ASLI (LOLOS FILTER BROWSER) -->
+        <audio id="loveAudio" loop>
+            <source src="https://soundhelix.com" type="audio/mpeg">
         </audio>
 
         <!-- HEADER UTAMA -->
@@ -116,7 +116,7 @@
             }
         }
 
-        // Jalankan audio otomatis jika mendeteksi klik pertama di luar tombol
+        // Memicu putar audio otomatis saat ada klik pertama di area layar mana saja
         document.body.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
