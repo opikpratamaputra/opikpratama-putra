@@ -65,7 +65,6 @@
         <!-- MULTI AUDIO JUKEBOX JALUR INDEKS PATEN -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
-            <!-- Menggunakan indeks angka di value agar aman dari eror spasi -->
             <select class="song-selector" id="songSelect" onchange="changeSong()">
                 <option value="0">🐝 Honeybee - Olivia Rodrigo</option>
                 <option value="1">🦴 To the Bone - Pamungkas</option>
@@ -83,7 +82,7 @@
 
             <!-- KOTAK LIRIK LENGKAP -->
             <div class="lyrics-container">
-                <div class="lyrics-text" id="lyricsBox">Loading...</div>
+                <div class="lyrics-text" id="lyricsBox">Give me a heart to replace what I gave you<br>'Cause I'm honeybee-ing my way right back to you<br>I know you're standard, but I am adaptable<br>Everything about you makes me comfortable<br>You're my sweet little honeybee...</div>
             </div>
         </div>
 
@@ -137,7 +136,6 @@
 
         player.volume = 1.0;
 
-        // DAFTAR FILE AUDIO DAN LIRIK BERDASARKAN INDEKS ANGKA PASTI AMAN
         var songs = [
             "honeybee.mp3.mp3",
             "tothebone.mp3.mp3",
@@ -149,8 +147,7 @@
             "SIENNA SPIRO - Pure.mp3.mp3"
         ];
 
+        // FIXED DATABASE: Menggunakan string murni literal agar lirik berganti mulus tanpa macet
         var lyricsData = [
             "Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...",
-            
-            "Have I ever told you\nI want you to the bone?\nHave I ever called you?\nWhen you are all alone\nTake me home, I'm fallin'\nLove me long, I'm rollin'\nOf all the things I've ever felt, dude, it's you...",
             
