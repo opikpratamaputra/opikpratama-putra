@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>our love story | opik & nisa</title>
+    <title>Our Love Story | Opik & Nisa</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
@@ -33,15 +33,18 @@
         .photo-card img { width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; }
         @media (max-width: 600px) { .photo-card img { height: 140px; } }
 
-        /* Jukebox Style + Kotak Lirik Berjalan */
+        /* Jukebox Style + Kotak Lirik Premium */
         .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
         .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
         .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 280px; outline: none; cursor: pointer; }
         audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; display: block; margin-top: 5px; }
         
-        /* Desain Kotak Teks Lirik Berjalan Modern */
-        .lyrics-container { margin-top: 15px; background: rgba(10, 5, 13, 0.6); border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 12px; padding: 15px; height: 90px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #f1f5f9; font-size: 1.05rem; line-height: 1.6; text-shadow: 0 0 8px rgba(255, 42, 133, 0.2); white-space: pre-line; transition: opacity 0.3s ease; width: 100%; }
+        /* Desain Kotak Lirik Scrolling Box (Bisa Di-scroll Atas-Bawah) */
+        .lyrics-container { margin-top: 15px; background: rgba(10, 5, 13, 0.7); border: 1px solid rgba(255, 42, 133, 0.2); border-radius: 12px; padding: 15px; height: 130px; overflow-y: auto; display: block; text-align: center; }
+        /* Kustom scrollbar biar kelihatan estetik pink */
+        .lyrics-container::-webkit-scrollbar { width: 4px; }
+        .lyrics-container::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 10px; }
+        .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 0.98rem; line-height: 1.8; white-space: pre-line; transition: opacity 0.3s ease; }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
@@ -54,13 +57,13 @@
 <body>
     <div class="container">
         
-        <!-- HEADER UTAMA SESUAI GAYA REQUEST BARU OPIK -->
+        <!-- HEADER UTAMA -->
         <header>
             <h1>GALERYYY BEDUWAAA ❤️</h1>
             <div class="subtitle">OPIK & NISA &bull; ALWAYSSS TOGETHERRR</div>
         </header>
 
-        <!-- MULTI AUDIO JUKEBOX + KOTAK LIRIK BERJALAN -->
+        <!-- MULTI AUDIO JUKEBOX + KOTAK LIRIK MAKSIMAL -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
@@ -78,18 +81,16 @@
                 <source id="audioSource" src="honeybee.mp3.mp3" type="audio/mpeg">
             </audio>
 
-            <!-- KOTAK TEMPAT LIRIK BERJALAN (MARQUEE EFFECT) -->
+            <!-- KOTAK SCROLL LIRIK LENGKAP -->
             <div class="lyrics-container">
-                <div class="lyrics-text" id="lyricsBox">
-                    <marquee direction="up" scrollamount="2" height="60" behavior="scroll">"Give me a heart to replace what I gave you...&#10;'Cause I'm honeybee-ing my way right back to you"</marquee>
-                </div>
+                <div class="lyrics-text" id="lyricsBox">Loading lyrics...</div>
             </div>
         </div>
 
         <!-- INTRO -->
         <section id="cerita">
-            <h2>✨ Ruang Kenangan Kita</h2>
-            <p>Welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
+            <h2>✨ GALERYYY BEDUWAAA</h2>
+            <p>welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa,kalian kapan yak?</p>
         </section>
         
         <!-- GALERI FOTO GRID 3 KOLOM PROPORSIONAL -->
@@ -136,7 +137,9 @@
 
         player.volume = 1.0;
 
-        // KUMPULAN DATABASE LIRIK INDONESIA BERJALAN JOSSS
+        // DATABASE SEMUA LIRIK LAGU LENGKAP INDONESIA DAN BARAT
         var lyricsData = {
-            "honeybee.mp3.mp3": '<marquee direction="up" scrollamount="2" height="60">"Give me a heart to replace what I gave you...&#10;\'Cause I\'m honeybee-ing my way right back to you"</marquee>',
-            "tothebone.mp3.mp3": '<marquee direction="up" scrollamount="2" height="60">"Take me home, I\'m fallin\'&#10;Love me long, I\'m rollin\'&#10;Of all the things I\'ve ever felt, dude, it\'s you..."</marquee>',
+            "honeybee.mp3.mp3": "Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...",
+            
+            "tothebone.mp3.mp3": "Have I ever told you\nI want you to the bone?\nHave I ever called you?\nWhen you are all alone\nTake me home, I'm fallin'\nLove me long, I'm rollin'\nOf all the things I've ever felt, dude, it's you...",
+            
