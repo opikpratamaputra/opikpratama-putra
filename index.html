@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story | opik & denisa</title>
+    <title>Our Love Story | Opik & Denisa</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
@@ -15,8 +15,8 @@
             --border-love: rgba(255, 42, 133, 0.25);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-love); color: var(--text-light); font-family: 'Plus Jakarta Sans', sans-serif; padding: 20px; overflow-x: hidden; background-image: radial-gradient(at 0% 0%, rgba(255, 42, 133, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(149, 0, 255, 0.08) 0px, transparent 50%); }
-        .container { max-width: 650px; margin: 40px auto; }
+        body { background-color: var(--bg-love); color: var(--text-light); font-family: 'Plus Jakarta Sans', sans-serif; padding: 20px; overflow-x: hidden; background-image: radial-gradient(at 0% 0%, rgba(255, 42, 133, 0.08) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(149, 0, 255, 0.08) 0px, transparent 50%); position: relative; min-height: 100vh; }
+        .container { max-width: 750px; margin: 40px auto; position: relative; z-index: 2; }
         header { background: var(--panel-bg); border: 1px solid var(--border-love); border-radius: 24px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 35px rgba(255, 42, 133, 0.15); margin-bottom: 30px; position: relative; }
         header h1 { font-family: 'Playfair Display', serif; font-size: 2.3rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
         .subtitle { font-size: 0.95rem; color: #cbd5e1; letter-spacing: 1px; text-transform: uppercase; }
@@ -24,10 +24,13 @@
         section h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--neon-pink); margin-bottom: 15px; border-bottom: 1px solid rgba(255, 42, 133, 0.1); padding-bottom: 8px; }
         section p { color: #cbd5e1; font-size: 0.98rem; line-height: 1.7; }
         
-        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px; }
-        .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 16px; padding: 12px; transition: all 0.3s ease; }
-        .photo-card:hover { transform: scale(1.03) rotate(0.5deg); border-color: var(--neon-pink); box-shadow: 0 0 25px rgba(255, 42, 133, 0.3); }
-        .photo-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 12px; display: block; margin: 0 auto; }
+        /* Tata Letak Gaya Pinterest Masonry Modern */
+        .photo-columns { column-count: 2; column-gap: 20px; margin-top: 25px; }
+        @media (max-width: 500px) { .photo-columns { column-count: 1; } }
+        
+        .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 16px; padding: 12px; margin-bottom: 20px; break-inside: avoid; display: inline-block; width: 100%; transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        .photo-card:hover { transform: translateY(-5px) scale(1.02); border-color: var(--neon-pink); box-shadow: 0 10px 25px rgba(255, 42, 133, 0.35); }
+        .photo-card img { width: 100%; height: auto; display: block; border-radius: 10px; }
 
         .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
         .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
@@ -36,6 +39,20 @@
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
+
+        /* Style untuk Animasi Hati / Bunga Jatuh */
+        .falling-element {
+            position: fixed;
+            top: -20px;
+            z-index: 1;
+            pointer-events: none;
+            animation: fall linear forwards;
+            font-size: 1.2rem;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -44,12 +61,12 @@
         <!-- HEADER UTAMA -->
         <header>
             <h1>GALERY BEDUWAAA ❤️</h1>
-            <div class="subtitle">opik & denisa &bull; always together</div>
+            <div class="subtitle">Opik & Denisa &bull; Selamanya Bersama</div>
         </header>
 
         <!-- MULTI AUDIO JUKEBOX -->
         <div class="music-box">
-            <div class="music-title">🎵 pilih Musik Pengiring Favorit Kita:</div>
+            <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
                 <option value="honeybee.mp3.mp3">🐝 Honeybee - Olivia Rodrigo</option>
                 <option value="tothebone.mp3.mp3">🦴 To the Bone - Pamungkas</option>
@@ -65,19 +82,18 @@
         <!-- INTRO -->
         <section id="cerita">
             <h2>✨ Ruang Kenangan Kita</h2>
-            <p>welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
+            <p>Welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
         </section>
         
-        <!-- GALERI FOTO MAHA BESAR (1 SAMPAI 16 LENGKAP TANPA TEXT) -->
+        <!-- TATA LETAK GALERI MASONRY -->
         <section id="galeri">
-            <h2>📸 galeri Foto beduwaaaa</h2>
-            <div class="photo-grid">
+            <h2>📸 Galeri Foto Kebersamaan & Hamster Gemas</h2>
+            <div class="photo-columns">
                 <div class="photo-card"><img src="foto 1.jpg.jpg" alt="Foto 1"></div>
                 <div class="photo-card"><img src="foto 2.jpg.jpg" alt="Foto 2"></div>
                 <div class="photo-card"><img src="foto 3.jpg.jpg" alt="Foto 3"></div>
                 <div class="photo-card"><img src="foto 4.jpg.jpg" alt="Foto 4"></div>
                 <div class="photo-card"><img src="foto 5.jpg.jpeg" alt="Foto 5"></div>
-                <!-- Blok Foto Baru Berformat .jpg.jpeg Sesuai Sistem Laptop Lu -->
                 <div class="photo-card"><img src="foto 6.jpg.jpeg" alt="Foto 6"></div>
                 <div class="photo-card"><img src="foto 7.jpg.jpeg" alt="Foto 7"></div>
                 <div class="photo-card"><img src="foto 8.jpg.jpeg" alt="Foto 8"></div>
@@ -118,7 +134,7 @@
             source.src = selectedSong;
             player.load();
             player.play().catch(function(error) {
-                console.log("Interaksi layar diperlukan sebelum audio bisa berputar otomatis");
+                console.log("Interaksi layar diperlukan");
             });
         }
 
@@ -127,6 +143,34 @@
                 player.play().catch(function(e){ console.log(e); });
             }
         }, { once: true });
+
+        /* SCRIPT LOGIKA EFEK BERGUGURAN (HATI & KELOPAK MAWAR) */
+        const shapes = ['❤️', '🌸', '💖', '🌹', '💕'];
+        function createFallingElement() {
+            const element = document.createElement('div');
+            element.classList.add('falling-element');
+            element.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+            
+            // Mengacak posisi horizontal awal jatuh
+            element.style.left = Math.random() * 100 + 'vw';
+            
+            // Mengacak kecepatan jatuh (antara 3 sampai 6 detik)
+            const duration = Math.random() * 3 + 3;
+            element.style.animationDuration = duration + 's';
+            
+            // Mengacak ukuran font agar bervariasi
+            element.style.fontSize = Math.random() * 15 + 12 + 'px';
+            
+            document.body.appendChild(element);
+            
+            // Hapus element otomatis dari browser ketika animasi selesai biar gak lemot
+            setTimeout(() => {
+                element.remove();
+            }, duration * 1000);
+        }
+        
+        // Memproduksi efek jatuh setiap 400 milidetik sekali secara terus menerus
+        setInterval(createFallingElement, 400);
     </script>
 </body>
 </html>
