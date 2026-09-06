@@ -39,9 +39,8 @@
         .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 280px; outline: none; cursor: pointer; }
         audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; display: block; margin-top: 5px; }
         
-        /* Desain Kotak Lirik Scrolling Box (Bisa Di-scroll Atas-Bawah) */
+        /* Desain Kotak Lirik Scrolling Box */
         .lyrics-container { margin-top: 15px; background: rgba(10, 5, 13, 0.7); border: 1px solid rgba(255, 42, 133, 0.2); border-radius: 12px; padding: 15px; height: 130px; overflow-y: auto; display: block; text-align: center; }
-        /* Kustom scrollbar biar kelihatan estetik pink */
         .lyrics-container::-webkit-scrollbar { width: 4px; }
         .lyrics-container::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 10px; }
         .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 0.98rem; line-height: 1.8; white-space: pre-line; transition: opacity 0.3s ease; }
@@ -63,7 +62,7 @@
             <div class="subtitle">OPIK & NISA &bull; ALWAYSSS TOGETHERRR</div>
         </header>
 
-        <!-- MULTI AUDIO JUKEBOX + KOTAK LIRIK MAKSIMAL -->
+        <!-- MULTI AUDIO JUKEBOX FIXED SPASI -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
@@ -83,14 +82,14 @@
 
             <!-- KOTAK SCROLL LIRIK LENGKAP -->
             <div class="lyrics-container">
-                <div class="lyrics-text" id="lyricsBox">Loading lyrics...</div>
+                <div class="lyrics-text" id="lyricsBox">Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...</div>
             </div>
         </div>
 
         <!-- INTRO -->
         <section id="cerita">
-            <h2>✨ GALERYYY BEDUWAAA</h2>
-            <p>welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa,kalian kapan yak?</p>
+            <h2>✨ Ruang Kenangan Kita</h2>
+            <p>Welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
         </section>
         
         <!-- GALERI FOTO GRID 3 KOLOM PROPORSIONAL -->
@@ -137,7 +136,7 @@
 
         player.volume = 1.0;
 
-        // DATABASE SEMUA LIRIK LAGU LENGKAP INDONESIA DAN BARAT
+        // DATABASE FIXED: MENGGUNAKAN VALUE VALUE RESMI SINKRON 100%
         var lyricsData = {
             "honeybee.mp3.mp3": "Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...",
             
