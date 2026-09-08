@@ -76,10 +76,10 @@
                 <option value="7">✨ Pure - Sienna Spiro</option>
             </select>
             <br>
-            <!-- Player murni dipancing langsung ke file pertama -->
-            <audio controls id="loveMusic" src="honeybee.mp3.mp3"></audio>
+            <!-- Player murni, src akan dipicu berdasar indeks secara bersih dari JavaScript -->
+            <audio controls id="loveMusic"></audio>
 
-            <!-- KOTAK LIRIK LENGKAP -->
+            <!-- KOTAK LIRIK LENGKAP STERIL -->
             <div class="lyrics-container">
                 <div class="lyrics-text" id="lyricsBox">Klik area mana saja pada layar untuk memutar lagu ❤️</div>
             </div>
@@ -131,8 +131,6 @@
         var player = document.getElementById("loveMusic");
         var selector = document.getElementById("songSelect");
         var lyrics = document.getElementById("lyricsBox");
-
-        player.volume = 1.0;
 
         var songs = [
             "honeybee.mp3.mp3",
