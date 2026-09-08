@@ -33,22 +33,22 @@
         .photo-card img { width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; }
         @media (max-width: 600px) { .photo-card img { height: 140px; } }
 
-        /* Jukebox Style + Kotak Lirik Premium */
+        /* Kotak Musik + Kotak Lirik Premium */
         .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
         .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
         .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 280px; outline: none; cursor: pointer; }
         audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; display: block; margin-top: 5px; }
         
-        /* Desain Kotak Lirik Penuh */
+        /* Desain Kotak Lirik */
         .lyrics-container { margin-top: 15px; background: rgba(10, 5, 13, 0.7); border: 1px solid rgba(255, 42, 133, 0.2); border-radius: 12px; padding: 15px; height: 135px; overflow-y: auto; display: block; text-align: center; }
         .lyrics-container::-webkit-scrollbar { width: 4px; }
         .lyrics-container::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 10px; }
-        .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 0.98rem; line-height: 1.8; white-space: pre-line; transition: opacity 0.2s ease; }
+        .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 0.98rem; line-height: 1.8; white-space: pre-line; }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
 
-        /* Animasi Hati / Bunga Jatuh */
+        /* Animasi Hati Jatuh */
         .falling-element { position: fixed; top: -20px; z-index: 1; pointer-events: none; animation: fall linear forwards; font-size: 1.2rem; }
         @keyframes fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(105vh) rotate(360deg); opacity: 0; } }
     </style>
@@ -62,7 +62,7 @@
             <div class="subtitle">OPIK & NISA &bull; ALWAYSSS TOGETHERRR</div>
         </header>
 
-        <!-- MULTI AUDIO JUKEBOX FIXED TOTAL -->
+        <!-- MULTI AUDIO JUKEBOX JALUR ID URUT -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
@@ -76,12 +76,11 @@
                 <option value="7">✨ Pure - Sienna Spiro</option>
             </select>
             <br>
-            <!-- Menggunakan src langsung pada tag audio agar mutlak terbaca -->
-            <audio controls id="loveMusic" src="honeybee.mp3.mp3"></audio>
+            <audio controls id="loveMusic"></audio>
 
             <!-- KOTAK LIRIK LENGKAP -->
             <div class="lyrics-container">
-                <div class="lyrics-text" id="lyricsBox">Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...</div>
+                <div class="lyrics-text" id="lyricsBox">Klik layar atau tombol Play untuk memulai musik ❤️</div>
             </div>
         </div>
 
@@ -146,5 +145,7 @@
         var lyricsData = [
             "Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...",
             
-            "Have I ever told you\nI want you to the bone?\nHave I ever called you?\nWhen you are all alone\nTake me home, I'm fallin'\nLove me long, I'm rollin'\nOf all the things I've ever felt, dude, it's you...",
+            "Have I ever told you\nI want you to the bone?\nHave I ever called you\nWhen you are all alone?\nTake me home, I'm fallin'\nLove me long, I'm rollin'\nOf all the things I've ever felt, dude, it's you...",
+            
+            "Overnight, kita lewati berdua...\nMenatap indahnya dunia di sela jemari kita\nTak peduli seberapa berat jalannya nanti\nAku akan tetap di sini, menggenggam erat tanganmu\nMenghabiskan seluruh sisa waktu bersamamu...",
             
