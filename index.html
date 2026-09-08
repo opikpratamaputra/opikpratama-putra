@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story | Opik & Denisa</title>
+    <title>Our Love Story | Opik & Nisa</title>
     <link href="https://googleapis.com" rel="stylesheet">
     <style>
         :root {
@@ -24,53 +24,26 @@
         section h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--neon-pink); margin-bottom: 15px; border-bottom: 1px solid rgba(255, 42, 133, 0.1); padding-bottom: 8px; }
         section p { color: #cbd5e1; font-size: 0.98rem; line-height: 1.7; }
         
-        /* FIX TATA LETAK: Menggunakan Grid 3 Kolom Gaya Instagram (Lebih Kecil & Padat) */
-        .photo-grid { 
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 15px; 
-            margin-top: 25px; 
-        }
-        @media (max-width: 600px) { 
-            .photo-grid { 
-                grid-template-columns: repeat(2, 1fr); /* Otomatis jadi 2 kolom pas dibuka di HP biar gak sempit */
-                gap: 10px;
-            } 
-        }
+        /* Grid 3 Kolom Kompak */
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 25px; }
+        @media (max-width: 600px) { .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
         
-        /* Card Foto Diperkecil dan Dikunci Kotak */
-        .photo-card { 
-            background: #1f122b; 
-            border: 1px solid rgba(255, 42, 133, 0.15); 
-            border-radius: 12px; 
-            padding: 8px; 
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
-            width: 100%;
-        }
-        .photo-card:hover { 
-            transform: scale(1.04); 
-            border-color: var(--neon-pink); 
-            box-shadow: 0 8px 20px rgba(255, 42, 133, 0.3); 
-        }
-        /* Mengunci tinggi foto agar pas segi-empat dan tidak kemakan memanjang */
-        .photo-card img { 
-            width: 100%; 
-            height: 200px; /* Ukuran pas ideal, tidak kepanjangan */
-            object-fit: cover; 
-            display: block; 
-            border-radius: 8px; 
-        }
-        @media (max-width: 600px) {
-            .photo-card img {
-                height: 140px; /* Ukuran lebih presisi pas di HP */
-            }
-        }
+        .photo-card { background: #1f122b; border: 1px solid rgba(255, 42, 133, 0.15); border-radius: 12px; padding: 8px; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.2); width: 100%; }
+        .photo-card:hover { transform: scale(1.04); border-color: var(--neon-pink); box-shadow: 0 8px 20px rgba(255, 42, 133, 0.3); }
+        .photo-card img { width: 100%; height: 200px; object-fit: cover; display: block; border-radius: 8px; }
+        @media (max-width: 600px) { .photo-card img { height: 140px; } }
 
+        /* Jukebox Style + Kotak Lirik Premium */
         .music-box { background: var(--panel-bg); border: 1px dashed var(--neon-pink); border-radius: 20px; padding: 20px; margin-bottom: 30px; text-align: center; box-shadow: 0 0 15px rgba(255, 42, 133, 0.1); }
         .music-title { font-size: 0.95rem; color: #fda4af; font-weight: 600; margin-bottom: 12px; }
-        .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 250px; outline: none; cursor: pointer; }
+        .song-selector { background: #1f122b; color: white; border: 1px solid var(--neon-pink); padding: 8px 15px; border-radius: 10px; font-size: 0.85rem; margin-bottom: 15px; width: 100%; max-width: 280px; outline: none; cursor: pointer; }
         audio { width: 100%; max-width: 400px; margin: 0 auto; outline: none; display: block; margin-top: 5px; }
+        
+        /* Desain Kotak Lirik Penuh */
+        .lyrics-container { margin-top: 15px; background: rgba(10, 5, 13, 0.7); border: 1px solid rgba(255, 42, 133, 0.2); border-radius: 12px; padding: 15px; height: 145px; overflow-y: auto; display: block; text-align: center; }
+        .lyrics-container::-webkit-scrollbar { width: 4px; }
+        .lyrics-container::-webkit-scrollbar-thumb { background: var(--neon-pink); border-radius: 10px; }
+        .lyrics-text { font-family: 'Playfair Display', serif; font-style: italic; color: #fda4af; font-size: 0.98rem; line-height: 1.8; white-space: pre-line; transition: opacity 0.2s ease; }
 
         .love-note { text-align: center; font-style: italic; color: #fda4af; padding: 10px 0; font-size: 1.1rem; line-height: 1.6; }
         footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.85rem; border-top: 1px solid var(--border-love); padding-top: 20px; }
@@ -85,23 +58,32 @@
         
         <!-- HEADER UTAMA -->
         <header>
-            <h1>GALERY BEDUWAAA ❤️</h1>
-            <div class="subtitle">Opik & Denisa &bull; Selamanya Bersama</div>
+            <h1>GALERYYY BEDUWAAA ❤️</h1>
+            <div class="subtitle">OPIK & NISA &bull; ALWAYSSS TOGETHERRR</div>
         </header>
 
-        <!-- MULTI AUDIO JUKEBOX -->
+        <!-- MULTI AUDIO JUKEBOX JALUR UTAMA -->
         <div class="music-box">
             <div class="music-title">🎵 Pilih Musik Pengiring Favorit Kita:</div>
             <select class="song-selector" id="songSelect" onchange="changeSong()">
-                <option value="honeybee.mp3.mp3">🐝 Honeybee - Olivia Rodrigo</option>
-                <option value="tothebone.mp3.mp3">🦴 To the Bone - Pamungkas</option>
-                <option value="overnight.mp3.mp3">🌙 Overnight - Kita Lewati Berdua</option>
+                <option value="0">🐝 Honeybee - Olivia Rodrigo</option>
+                <option value="1">🦴 To the Bone - Pamungkas</option>
+                <option value="2">🌙 Overnight - Kita Lewati Berdua</option>
+                <option value="3">🎸 About You - The 1975</option>
+                <option value="4">🍵 Teh Hijau - Tulus</option>
+                <option value="5">☔ Di Pelukan - Payung Teduh</option>
+                <option value="6">🎹 Titik Nadir - Kahitna</option>
+                <option value="7">✨ Pure - Sienna Spiro</option>
             </select>
             <br>
             <audio controls id="loveMusic">
                 <source id="audioSource" src="honeybee.mp3.mp3" type="audio/mpeg">
-                Browser kamu tidak mendukung pemutar audio bawaan.
             </audio>
+
+            <!-- KOTAK LIRIK LENGKAP -->
+            <div class="lyrics-container">
+                <div class="lyrics-text" id="lyricsBox">Loading...</div>
+            </div>
         </div>
 
         <!-- INTRO -->
@@ -110,9 +92,9 @@
             <p>Welcomee too thee websitee bothh of youu,websiteee iniii dibuattt khususs penyimpannn kegiatann bersamaa</p>
         </section>
         
-        <!-- TATA LETAK GALERI MASONRY FIXED GRID 3 KOLOM -->
+        <!-- GALERI FOTO GRID 3 KOLOM -->
         <section id="galeri">
-            <h2>📸 Galeri Foto Kebersamaan & Hamster Gemas</h2>
+            <h2>📸 galeryyy fotooo bersamaaa</h2>
             <div class="photo-grid">
                 <div class="photo-card"><img src="foto 1.jpg.jpg" alt="Foto 1"></div>
                 <div class="photo-card"><img src="foto 2.jpg.jpg" alt="Foto 2"></div>
@@ -120,7 +102,6 @@
                 <div class="photo-card"><img src="foto 4.jpg.jpg" alt="Foto 4"></div>
                 <div class="photo-card"><img src="foto 5.jpg.jpeg" alt="Foto 5"></div>
                 <div class="photo-card"><img src="foto 6.jpg.jpeg" alt="Foto 6"></div>
-                <div class="photo-card"><img src="foto 7.jpg.jpeg" alt="Foto 7"></div>
                 <div class="photo-card"><img src="foto 8.jpg.jpeg" alt="Foto 8"></div>
                 <div class="photo-card"><img src="foto 9.jpg.jpeg" alt="Foto 9"></div>
                 <div class="photo-card"><img src="foto 10.jpg.jpeg" alt="Foto 10"></div>
@@ -150,39 +131,25 @@
         var player = document.getElementById("loveMusic");
         var source = document.getElementById("audioSource");
         var selector = document.getElementById("songSelect");
+        var lyrics = document.getElementById("lyricsBox");
 
         player.volume = 1.0;
 
-        function changeSong() {
-            var selectedSong = selector.value;
-            player.pause();
-            source.src = selectedSong;
-            player.load();
-            player.play().catch(function(error) {
-                console.log("Interaksi layar diperlukan");
-            });
-        }
+        // DAFTAR FILENAME AUDIO STABIL SESUAI REPO LU
+        var songs = [
+            "honeybee.mp3.mp3",
+            "tothebone.mp3.mp3",
+            "overnight.mp3.mp3",
+            "The 1975  About You.mp3.mp3",
+            "TULUS - Teh Hijau.mp3.mp3",
+            "Untuk Perempuan Yang Sedang Di Pelukan - Payung Teduh.mp3.mp3",
+            "Titik Nadir - Kahitna.mp3.mp3",
+            "SIENNA SPIRO - Pure.mp3.mp3"
+        ];
 
-        document.body.addEventListener('click', function() {
-            if (player.paused) {
-                player.play().catch(function(e){ console.log(e); });
-            }
-        }, { once: true });
-
-        /* SCRIPT LOGIKA EFEK BERGUGURAN (HATI & KELOPAK MAWAR) */
-        const shapes = ['❤️', '🌸', '💖', '🌹', '💕'];
-        function createFallingElement() {
-            const element = document.createElement('div');
-            element.classList.add('falling-element');
-            element.innerText = shapes[Math.floor(Math.random() * shapes.length)];
-            element.style.left = Math.random() * 100 + 'vw';
-            const duration = Math.random() * 3 + 3;
-            element.style.animationDuration = duration + 's';
-            element.style.fontSize = Math.random() * 15 + 12 + 'px';
-            document.body.appendChild(element);
-            setTimeout(() => { element.remove(); }, duration * 1000);
-        }
-        setInterval(createFallingElement, 400);
-    </script>
-</body>
-</html>
+        // DATABASE LIRIK INDIVIDU LENGKAP: Masing-masing lagu punya liriknya sendiri!
+        var lyricsData = [
+            "Give me a heart to replace what I gave you\n'Cause I'm honeybee-ing my way right back to you\nI know you're standard, but I am adaptable\nEverything about you makes me comfortable\nYou're my sweet little honeybee...",
+            
+            "Have I ever told you\nI want you to the bone?\nHave I ever called you?\nWhen you are all alone\nTake me home, I'm fallin'\nLove me long, I'm rollin'\nOf all the things I've ever felt, dude, it's you...",
+            
